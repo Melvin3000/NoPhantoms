@@ -29,7 +29,7 @@ public class SQLite {
 				String create = "CREATE TABLE nophantoms "
 					+ "(id INTEGER PRIMARY KEY AUTOINCREMENT,"
 					+ "uuid BLOB);"
-					+ "CREATE INDEX idx_nophantoms_ ON nophantoms (uuid);"
+					+ "CREATE INDEX idx_nophantoms_uuid ON nophantoms (uuid);"
 					+ "PRAGMA user_version = 1;";
 
 				st.executeUpdate(create);
