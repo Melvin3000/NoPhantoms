@@ -39,6 +39,7 @@ public class Phantoms {
 			SQLite.insertUUID(uuid);
 			rest(player);
 			player.sendMessage(ChatColor.GREEN + "Disabled phantom spawning.");
+			NoPhantoms.instance.getLogger().info(player.getName() + " disabled phantoms");
 		}
 
 		/* Enable Phantoms for player once again */
@@ -46,6 +47,7 @@ public class Phantoms {
 			noPhantomPlayers.remove(uuid);
 			SQLite.deleteUUID(uuid);
 			player.sendMessage(ChatColor.GREEN + "Enabled phantom spawning.");
+			NoPhantoms.instance.getLogger().info(player.getName() + " enabled phantoms");
 		}
 	}
 
@@ -56,6 +58,9 @@ public class Phantoms {
 	 * @param player Player to simulate sleeping for
 	 */
 	public static void rest(Player player) {
+		int prev = player.getStatistic(Statistic.TIME_SINCE_REST);
+		NoPhantoms.instance.getLogger().info("Reset sleep timer for " + player.getName() +
+				" from " + prev);
 		player.setStatistic(Statistic.TIME_SINCE_REST, 0);
 	}
 
