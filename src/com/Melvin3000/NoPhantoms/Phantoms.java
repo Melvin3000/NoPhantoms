@@ -58,9 +58,6 @@ public class Phantoms {
 	 * @param player Player to simulate sleeping for
 	 */
 	public static void rest(Player player) {
-		int prev = player.getStatistic(Statistic.TIME_SINCE_REST);
-		NoPhantoms.instance.getLogger().info("Reset sleep timer for " + player.getName() +
-				" from " + prev);
 		player.setStatistic(Statistic.TIME_SINCE_REST, 0);
 	}
 
